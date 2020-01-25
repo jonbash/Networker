@@ -10,6 +10,12 @@
 		9945CF6F23DBC721006B6513 /* Networker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9945CF6523DBC721006B6513 /* Networker.framework */; };
 		9945CF7423DBC721006B6513 /* NetworkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9945CF7323DBC721006B6513 /* NetworkerTests.swift */; };
 		9945CF7623DBC721006B6513 /* Networker.h in Headers */ = {isa = PBXBuildFile; fileRef = 9945CF6823DBC721006B6513 /* Networker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9945CF8023DBC73E006B6513 /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9945CF7F23DBC73E006B6513 /* Networker.swift */; };
+		9945CF8223DBC76B006B6513 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9945CF8123DBC76B006B6513 /* DataLoader.swift */; };
+		9945CF8623DBC7EB006B6513 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9945CF8523DBC7EB006B6513 /* NetworkError.swift */; };
+		9945CF8823DBD0D5006B6513 /* URLRequest+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9945CF8723DBD0D5006B6513 /* URLRequest+Convenience.swift */; };
+		9945CF8A23DBD0F2006B6513 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9945CF8923DBD0F2006B6513 /* HTTPMethod.swift */; };
+		9945CF8E23DBDA32006B6513 /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9945CF8D23DBDA32006B6513 /* DataDecoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +35,12 @@
 		9945CF6E23DBC721006B6513 /* NetworkerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9945CF7323DBC721006B6513 /* NetworkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkerTests.swift; sourceTree = "<group>"; };
 		9945CF7523DBC721006B6513 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9945CF7F23DBC73E006B6513 /* Networker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networker.swift; sourceTree = "<group>"; };
+		9945CF8123DBC76B006B6513 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		9945CF8523DBC7EB006B6513 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		9945CF8723DBD0D5006B6513 /* URLRequest+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Convenience.swift"; sourceTree = "<group>"; };
+		9945CF8923DBD0F2006B6513 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		9945CF8D23DBDA32006B6513 /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +85,12 @@
 			children = (
 				9945CF6823DBC721006B6513 /* Networker.h */,
 				9945CF6923DBC721006B6513 /* Info.plist */,
+				9945CF7F23DBC73E006B6513 /* Networker.swift */,
+				9945CF8123DBC76B006B6513 /* DataLoader.swift */,
+				9945CF8D23DBDA32006B6513 /* DataDecoder.swift */,
+				9945CF8523DBC7EB006B6513 /* NetworkError.swift */,
+				9945CF8923DBD0F2006B6513 /* HTTPMethod.swift */,
+				9945CF8723DBD0D5006B6513 /* URLRequest+Convenience.swift */,
 			);
 			path = Networker;
 			sourceTree = "<group>";
@@ -148,6 +166,7 @@
 				TargetAttributes = {
 					9945CF6423DBC721006B6513 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 					9945CF6D23DBC721006B6513 = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -195,6 +214,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9945CF8223DBC76B006B6513 /* DataLoader.swift in Sources */,
+				9945CF8E23DBDA32006B6513 /* DataDecoder.swift in Sources */,
+				9945CF8623DBC7EB006B6513 /* NetworkError.swift in Sources */,
+				9945CF8A23DBD0F2006B6513 /* HTTPMethod.swift in Sources */,
+				9945CF8823DBD0D5006B6513 /* URLRequest+Convenience.swift in Sources */,
+				9945CF8023DBC73E006B6513 /* Networker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +365,7 @@
 		9945CF7A23DBC721006B6513 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 22X3GA956P;
@@ -356,6 +382,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jonbash.Networker;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -364,6 +391,7 @@
 		9945CF7B23DBC721006B6513 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 22X3GA956P;
@@ -388,6 +416,7 @@
 		9945CF7D23DBC721006B6513 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22X3GA956P;
 				INFOPLIST_FILE = NetworkerTests/Info.plist;
@@ -406,6 +435,7 @@
 		9945CF7E23DBC721006B6513 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22X3GA956P;
 				INFOPLIST_FILE = NetworkerTests/Info.plist;
