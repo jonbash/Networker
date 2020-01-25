@@ -28,6 +28,72 @@ class Networker {
         self.verboseLogging = verboseLogging
     }
 
+    // MARK: - Fetch
+
+    func fetch<T: Decodable>(
+        _ type: T.Type,
+        fromURL url: URL,
+        completion: @escaping (Result<T, NetworkError>) -> Void
+    ) -> URLSessionDataTask {
+        return fetch(T.self, withRequest: URLRequest(url: url), completion: completion)
+    }
+
+    func fetch<T: Decodable>(
+        _ type: T.Type,
+        withRequest request: URLRequest,
+        completion: @escaping (Result<T, NetworkError>) -> Void
+    ) -> URLSessionDataTask {
+        return fetchOptional(T.self, withRequest: request) { result in
+            switch result {
+            case .success(let possibleModel):
+                if let model = possibleModel {
+                    completion(.success(model))
+                } else {
+                    completion(.failure(.noData))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    func fetchOptional<T: Decodable>(
+        _ type: T.Type,
+        fromURL url: URL,
+        completion: @escaping (Result<T?, NetworkError>) -> Void
+    ) -> URLSessionDataTask {
+        return fetchOptional(T.self, withRequest: URLRequest(url: url), completion: completion)
+    }
+
+    func fetchOptional<T: Decodable>(
+        _ type: T.Type,
+        withRequest request: URLRequest,
+        completion: @escaping (Result<T?, NetworkError>) -> Void
+    ) -> URLSessionDataTask {
+        return fetchOptionalData(withRequest: request) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let data):
+                guard let data = data else {
+                    completion(.success(nil))
+                    return
+                }
+                do {
+                    let model = try self.decoder.decode(T.self, from: data)
+                    completion(.success(model))
+                } catch {
+                    completion(.failure(.dataCodingError(specifically: error, data: data)))
+                }
+            case .failure(let error):
+                if error == .noData {
+                    completion(.success(nil))
+                } else {
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+
     func fetchData(
         fromURL url: URL,
         completion: @escaping (Result<Data, NetworkError>) -> Void
@@ -85,6 +151,8 @@ class Networker {
             completion(.success(data))
         }
     }
+
+    // MARK: - Private
 
     private func log(_ string: String) {
         if verboseLogging {
