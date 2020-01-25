@@ -35,7 +35,7 @@ class Networker {
         _ type: DecodableModel.Type,
         withRequest request: URLRequest,
         completion: @escaping (Result<DecodableModel, NetworkError>) -> Void
-    ) -> URLSessionDataTask {
+    ) -> DataTask? {
         return fetchData(withRequest: request) { [weak self] result in
             guard let self = self else { return }
             self.handleDataResult(result, completion: completion)
@@ -46,7 +46,7 @@ class Networker {
         _ type: DecodableModel.Type,
         withRequest request: URLRequest,
         completion: @escaping (Result<DecodableModel?, NetworkError>) -> Void
-    ) -> URLSessionDataTask {
+    ) -> DataTask? {
         return fetchOptionalData(withRequest: request) { [weak self] result in
             guard let self = self else { return }
             self.handleOptionalDataResult(result, completion: completion)
@@ -56,7 +56,7 @@ class Networker {
     func fetchData(
         withRequest request: URLRequest,
         completion: @escaping (Result<Data, NetworkError>) -> Void
-    ) -> URLSessionDataTask {
+    ) -> DataTask? {
         return fetchOptionalData(withRequest: request) { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -76,7 +76,7 @@ class Networker {
     func fetchOptionalData(
         withRequest request: URLRequest,
         completion: @escaping (Result<Data?, NetworkError>) -> Void
-    ) -> URLSessionDataTask {
+    ) -> DataTask? {
         return dataLoader.dataTask(with: request) { [weak self] data, response, error in
             guard let self = self else { return }
             if let error = error {
