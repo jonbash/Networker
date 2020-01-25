@@ -17,8 +17,10 @@ class Networker {
 
     var verboseLogging: Bool
 
+    // MARK: - Init
+
     init(dataLoader: DataLoader = URLSession.shared,
-         decoder: DataDecoder,
+         decoder: DataDecoder = JSONDecoder(),
          verboseLogging: Bool = false
     ) {
         self.dataLoader = dataLoader
