@@ -103,7 +103,6 @@
 			children = (
 				9945CF7F23DBC73E006B6513 /* Networker.swift */,
 				9945CF9A23DE1F78006B6513 /* FetchOperationManager.swift */,
-				9945CF9C23DE1F9C006B6513 /* FetchOperation.swift */,
 				9945CF9523DCEF43006B6513 /* Helpers */,
 				9945CF9323DCEF22006B6513 /* Protocols */,
 				9945CF9423DCEF28006B6513 /* Mock */,
@@ -147,6 +146,7 @@
 			children = (
 				9945CF8523DBC7EB006B6513 /* NetworkError.swift */,
 				9945CF8923DBD0F2006B6513 /* HTTPMethod.swift */,
+				9945CF9C23DE1F9C006B6513 /* FetchOperation.swift */,
 				9945CF9E23DE1FA9006B6513 /* ConcurrentOperation.swift */,
 				9945CFA223DE2FCD006B6513 /* Cache.swift */,
 				9945CFA023DE2271006B6513 /* Atomic.swift */,

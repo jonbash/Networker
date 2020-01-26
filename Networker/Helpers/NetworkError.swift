@@ -14,7 +14,7 @@ enum NetworkError: Error {
     case dataCodingError(specifically: Error?, data: Data?)
     case non200Response(response: URLResponse?, data: Data?)
     case badRequest(request: URLRequest?)
-    case other(specifically: Error)
+    case other(specifically: Error?)
 }
 
 extension NetworkError: Equatable {
@@ -36,7 +36,7 @@ extension NetworkError: Equatable {
             } else { return false }
         case .other(let specificError):
             if case .other(let rhError) = rhs,
-                specificError.localizedDescription == rhError.localizedDescription {
+                specificError?.localizedDescription == rhError?.localizedDescription {
                 return true
             } else { return false }
         case .badRequest(request: let request):
