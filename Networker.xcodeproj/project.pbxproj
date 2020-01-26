@@ -20,6 +20,11 @@
 		9945CF9223DCEDC8006B6513 /* DataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9945CF9123DCEDC8006B6513 /* DataTask.swift */; };
 		9945CF9723DCF535006B6513 /* MockTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9945CF9623DCF535006B6513 /* MockTask.swift */; };
 		9945CF9923DCF930006B6513 /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9945CF9823DCF930006B6513 /* MockResponse.swift */; };
+		9945CF9B23DE1F78006B6513 /* FetchOperationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9945CF9A23DE1F78006B6513 /* FetchOperationManager.swift */; };
+		9945CF9D23DE1F9C006B6513 /* FetchOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9945CF9C23DE1F9C006B6513 /* FetchOperation.swift */; };
+		9945CF9F23DE1FA9006B6513 /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9945CF9E23DE1FA9006B6513 /* ConcurrentOperation.swift */; };
+		9945CFA123DE2271006B6513 /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9945CFA023DE2271006B6513 /* Atomic.swift */; };
+		9945CFA323DE2FCD006B6513 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9945CFA223DE2FCD006B6513 /* Cache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		9945CF9123DCEDC8006B6513 /* DataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTask.swift; sourceTree = "<group>"; };
 		9945CF9623DCF535006B6513 /* MockTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTask.swift; sourceTree = "<group>"; };
 		9945CF9823DCF930006B6513 /* MockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponse.swift; sourceTree = "<group>"; };
+		9945CF9A23DE1F78006B6513 /* FetchOperationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchOperationManager.swift; sourceTree = "<group>"; };
+		9945CF9C23DE1F9C006B6513 /* FetchOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchOperation.swift; sourceTree = "<group>"; };
+		9945CF9E23DE1FA9006B6513 /* ConcurrentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentOperation.swift; sourceTree = "<group>"; };
+		9945CFA023DE2271006B6513 /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
+		9945CFA223DE2FCD006B6513 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				9945CF7F23DBC73E006B6513 /* Networker.swift */,
+				9945CF9A23DE1F78006B6513 /* FetchOperationManager.swift */,
+				9945CF9C23DE1F9C006B6513 /* FetchOperation.swift */,
 				9945CF9523DCEF43006B6513 /* Helpers */,
 				9945CF9323DCEF22006B6513 /* Protocols */,
 				9945CF9423DCEF28006B6513 /* Mock */,
@@ -135,6 +147,9 @@
 			children = (
 				9945CF8523DBC7EB006B6513 /* NetworkError.swift */,
 				9945CF8923DBD0F2006B6513 /* HTTPMethod.swift */,
+				9945CF9E23DE1FA9006B6513 /* ConcurrentOperation.swift */,
+				9945CFA223DE2FCD006B6513 /* Cache.swift */,
+				9945CFA023DE2271006B6513 /* Atomic.swift */,
 				9945CF8723DBD0D5006B6513 /* URLRequest+Convenience.swift */,
 			);
 			path = Helpers;
@@ -250,15 +265,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9945CF9B23DE1F78006B6513 /* FetchOperationManager.swift in Sources */,
+				9945CFA323DE2FCD006B6513 /* Cache.swift in Sources */,
 				9945CF9023DCEBF6006B6513 /* MockLoader.swift in Sources */,
 				9945CF8223DBC76B006B6513 /* DataLoader.swift in Sources */,
+				9945CF9F23DE1FA9006B6513 /* ConcurrentOperation.swift in Sources */,
 				9945CF8E23DBDA32006B6513 /* DataDecoder.swift in Sources */,
 				9945CF8623DBC7EB006B6513 /* NetworkError.swift in Sources */,
 				9945CF9723DCF535006B6513 /* MockTask.swift in Sources */,
+				9945CF9D23DE1F9C006B6513 /* FetchOperation.swift in Sources */,
 				9945CF8A23DBD0F2006B6513 /* HTTPMethod.swift in Sources */,
 				9945CF9923DCF930006B6513 /* MockResponse.swift in Sources */,
 				9945CF8823DBD0D5006B6513 /* URLRequest+Convenience.swift in Sources */,
 				9945CF9223DCEDC8006B6513 /* DataTask.swift in Sources */,
+				9945CFA123DE2271006B6513 /* Atomic.swift in Sources */,
 				9945CF8023DBC73E006B6513 /* Networker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
