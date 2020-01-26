@@ -24,6 +24,11 @@ class Cache<Key: Hashable, Value> {
         self.cache.wrappedValue[key]
     }
 
+    @discardableResult
+    func removeValue(forKey key: Key) -> Value? {
+        self.cache.wrappedValue.removeValue(forKey: key)
+    }
+
     func clear() {
         self.cache.wrappedValue.removeAll()
     }
